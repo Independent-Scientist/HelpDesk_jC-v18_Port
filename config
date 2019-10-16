@@ -1,0 +1,26 @@
+name                      : Selfit Aprovador
+version                   : 0.0.1
+author                    : Leonardo Zanoni
+
+url                       : https://www.tupiconsultoria.com.br
+
+// IMPORTANT: update the connection string below
+//database                  : postgre://testbed_helpdesk_usr:!*ohHA6663#*@localhost/testbed_helpdesk
+database                  : postgre://testbed_helpdesk_usr:123456@localhost/testbed_helpdesk
+
+// Custom SMTP settings
+
+mail_smtp                 : smtp.domain.com
+// mail_smtp_options         : {"user":"","password":""}
+mail_address_from         : support@totaljs.com
+
+auth.cookie               : __user
+auth.secret               : HeLlUser
+
+// Gmail SMTP settings
+// mail-smtp                : smtp.gmail.com
+// mail-smtp-options        : {"port":465,"secure":true,"user":"ENTER_YOUR_EMAIL","password":"ENTER_YOUR_PASSWORD","rejectUnauthorized":true}
+
+// Office365 SMTP settings
+// mail-smtp                : smtp.office365.com
+// mail-smtp-options        : {"port":587,"secure":false,"user":"ENTER_YOUR_EMAIL","password":"ENTER_YOUR_PASSWORD","tls":{"ciphers":"SSLv3"}}

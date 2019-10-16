@@ -1,0 +1,13 @@
+sftp-config.json
+package-lock.json
+public/components/*
+logs/
+tmp/
+node_modules/
+.idea/
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock

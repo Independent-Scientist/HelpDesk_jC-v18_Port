@@ -1,0 +1,190 @@
+@{layout('')}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>@{config.name} v@{config.version}</title>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=11" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="robots" content="all,follow" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="#68B25B" />
+	<meta name="apple-mobile-web-app-title" content="@{config.name}" />
+	<link rel="apple-touch-icon" href="/icon.png" />
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,700" />
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" />
+
+    <!-- jQuery -->
+<!--	<script src="//code.jquery.com/jquery-3.0.0.min.js"></script>-->
+
+	@{if true}
+		<!--	jQuery -->
+		<script
+				src="https://code.jquery.com/jquery-3.4.1.min.js"
+				integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+				crossorigin="anonymous"></script>
+
+		<!--	jComponents -->
+		<script src="/js/jc.min.js"></script>
+		<!--	Tangular  -->
+		<script src="/js/tangular.js"></script>
+		<!--	jRounting  -->
+		<script src="/js/jrouting.js"></script>
+
+	@{else}
+
+<!--		<link rel="stylesheet" href="//cdn.componentator.com/spa.min@18.css" />-->
+<!--		<script src="//cdn.componentator.com/spa.min@18.js"></script>-->
+
+<!--		<script-->
+<!--				src="https://code.jquery.com/jquery-3.4.1.min.js"-->
+<!--				integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="-->
+<!--				crossorigin="anonymous"></script>-->
+
+<!--		<script src="/js/jctajr.min.js"></script>-->
+
+	@{fi}
+
+<!--	@{import('meta', 'head', 'login.css', 'login.js', 'favicon.ico')}-->
+	@{import('meta', 'head', 'login.css', 'favicon.ico')}
+
+</head>
+<body>
+
+	<div data-jc="message" data-button="@(Close)"></div>
+	<div data-jc="confirm"></div>
+	<div data-jc="loading" class="hidden"></div>
+
+	<div class="center-container">
+		<div class="center-body">
+			<div class="form">
+				<div style="line-height:0">
+					<div class="logo">
+						<img src="img/logo.png" alt="">
+						<!-- <svg width="80px" height="80px" viewBox="0 0 200 200" version="1.1" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;"><path d="M74.819,0l-74.819,43.266l0,86.532l74.819,43.265l75.181,-43.265l0,-86.532l-75.181,-43.266ZM74.318,54.683l27.682,15.924l0,32.049l-27.682,16.025l-27.818,-16.025l0,-32.049l27.818,-15.924Z" style="fill:white;fill-rule:nonzero;"/><path d="M37.049,21.598l-37.049,21.552l0,86.532l37.103,21.578l22.147,-38.642l0,0.046l-29.934,0l14.953,-26.248l-14.953,-26.252l29.934,0l0,0.103l-22.201,-38.669Z" style="fill:white;fill-rule:nonzero;"/><path d="M33.633,63.164l12.697,23.005l-12.697,23.495l26.936,0l13.49,-23.453l-13.49,-23.047l-26.936,0Z" style="fill:#E0E0E0;fill-rule:nonzero;"/></svg> -->
+						<h1><b>@{config.name}</b> v@{config.version}</h1>
+					</div>
+					<svg style="width:100%" viewBox="0 0 1170 30" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h1170s-441.424 30-578.518 30c-137.094 0-591.482-30-591.482-30z" fill="#2249b6"/></svg>
+				</div>
+
+				<div data-jc="visible" data-jc-path="password.response" data-if="value && value.success" class="success hidden">
+					<i class="fa fa-check-circle"></i>@(Mandamos um email con instrucoes para resetar o password.)
+				</div>
+
+<!--				<div class="padding signin" data-jc="visible" data-jc-path="common.form" data-if="value === 'signin'">-->
+				<div class="padding signin" data-bind="common.form___show:value === 'signin'">
+<!--					<div data-jc="textbox" data-jc-path="signin.email" data-required="true" data-jc-value="'@'" data-jc-type="email">@(Email)</div>-->
+					<div data---="textbox___signin.email___required:true;placeholder:@;type:email">@(Email)</div>
+					<br />
+<!--					<div data-jc="textbox" data-jc-path="signin.password" data-jc-type="password" data-required="true" data-jc-value="''">@(Senha)</div>-->
+					<div data---="textbox___signin.password___type:password;required:true___''">@(Senha)</div>
+					<br />
+					<ul class="links">
+						<li><span class="fa fa-lock"></span> <a href="javascript:void(0)" data---="click___common.form___value:password">@(Sem acesso a conta)</a></li>
+<!--						<li><span class="fa fa-lock"></span> <a href="javascript:void(0)" data-jc="click" data-jc-path="common.form" data-value="password">@(Sem acesso a conta)</a></li>-->
+<!--						<li><span class="fa fa-question-circle"></span> <a href="https://www.totaljs.com/support/" target="_blank">@(Help)</a></li>-->
+					</ul>
+					<div data-jc="error" data-jc-path="signin.response"></div>
+					<div data-jc="validation" data-jc-path="signin">
+<!--						<button class="ui-button" disabled="disabled" data-jc="click" data-jc-path="doLogin" data-enter=".signin" style="margin-top:8px;width:100%">@(LOGAR)</button>-->
+<!--							<button class="ui-button" data-&#45;&#45;="click___doLogin__enter:#signin" data-bind="signin__disabled:.password !== ''"  style="margin-top:8px;width:100%">@(LOGAR)</button>-->
+							<button name="submit" class="ui-button" data---="click___doLogin__enter:#signin" disabled data-bind="null__click:signin/submit" style="margin-top:8px;width:100%">SEND</button>
+					</div>
+				</div>
+
+<!--				<div class="padding password hidden" data-jc="visible" data-jc-path="common.form" data-if="value === 'password'">-->
+				<div class="padding password hidden" data-bind="common.form___show:value === 'password'">
+<!--					<div data-jc="textbox" data-jc-path="password.email" data-required="true" data-jc-value="'@'" data-jc-type="email">@(Email)</div>-->
+					<div data---="textbox___password.email___type:email;required:true;placeholder:@___''">@(Email)</div>
+					<br />
+					<ul class="links">
+						<li><span class="fa fa-lock"></span> <a href="javascript:void(0)" data---="click__common.form__value:signin">@(Eu sei meu acesso.)</a></li>-->
+<!--						<li><span class="fa fa-question-circle"></span> <a href="javascript:void(0)">@(Help)</a></li>-->
+					</ul>
+					<div data-jc="error" data-jc-path="password.response"></div>
+					<div data-jc="validation" data-jc-path="password">
+<!--						<button class="ui-button" disabled="disabled" data-jc="click" data-jc-path="doPassword" data-enter=".password" style="margin-top:8px;width:100%">@(LOGAR)</button>-->
+						<button class="ui-button" disabled="disabled" data-jc="click" data-jc-path="doPassword" data-enter=".password" style="margin-top:8px;width:100%">@(LOGAR)</button>
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<script>
+
+	var signin = {};
+	var common = { form: 'signin' };
+	var qs = parseQuery();
+
+	 function parseQuery(t) {
+		if (t || (t = location.search), !t) return EMPTYOBJECT;
+		var e = t.indexOf('?'); - 1 !== e && (t = t.substring(e + 1));
+		for (var n = t.split('&'), r = {}, i = 0, a = n.length; a > i; i++) {
+			var o = n[i].split('='),
+					s = o[0],
+					u = decodeURIComponent((o[1] || '').replace(/\+/g, '%20'));
+			r[s] ? (r[s] instanceof Array || (r[s] = [r[s]]), r[s].push(u)) : r[s] = u
+		}
+		return r
+	};
+
+	$(document).ready(function() {
+
+		if (qs.token) {
+			doToken();
+			return;
+		}
+
+		FIND('loading', function(component) {
+			component.hide(500);
+		});
+
+	});
+
+	function doLogin() {
+		SETTER('loading', 'show');
+		AJAX('POST /api/login/', signin, function(response) {
+			SET('signin.response', response);
+			if (response.success)
+				location.href = '/';
+			else
+				SETTER('loading', 'hide', 1000);
+		});
+	}
+
+	function doToken() {
+		SETTER('loading', 'show');
+		AJAX('POST /api/token/', qs, function(response) {
+			if (response.success)
+				location.href = '/account/?password=1';
+			else
+				SETTER('loading', 'hide', 1000);
+		});
+	}
+
+	function doPassword() {
+		if (BLOCKED('login', 3000))
+			return;
+		RESET('password.*');
+		SETTER('loading', 'show');
+		AJAX('POST /api/password/', password, function(response) {
+			SETTER('loading', 'hide', 1000);
+			SET('password.response', response);
+			if (response.success)
+				SET('common.form', 'signin');
+		});
+	}
+
+	setTimeout(function() {
+		$('.form').addClass('form-visible');
+	}, 500);
+
+	</script>
+
+</body>
+</html>
